@@ -530,6 +530,67 @@
 
                                 </div>
 
+
+                                <div class="or-divider">
+                                    أو ارفع ملف البرنامج/اللعبة مباشرة
+                                </div>
+
+
+                                <div
+                                    class="dropzone"
+                                    id="dropzoneFile"
+                                >
+
+                                    <div class="dz-icon">
+                                        📦
+                                    </div>
+
+                                    <div class="dz-title">
+                                        اسحب ملف البرنامج/اللعبة هنا أو اضغط للاختيار
+                                    </div>
+
+                                    <div class="dz-sub">
+                                        ZIP, EXE, APK... — حتى 4MB فقط
+                                    </div>
+
+                                    <input
+                                        type="file"
+                                        id="pProgramFile"
+                                    >
+
+                                </div>
+
+
+                                <div
+                                    class="file-chip"
+                                    id="fileChip"
+                                    style="display:none;"
+                                >
+
+                                    <span id="fileChipName"></span>
+
+                                    <button
+                                        type="button"
+                                        id="removeFileBtn"
+                                    >
+                                        ✕
+                                    </button>
+
+                                </div>
+
+
+                                <p
+                                    class="step-hint"
+                                    style="margin-top:12px; margin-bottom:0;"
+                                >
+                                    ⚠️ هذا الرفع المباشر مناسب فقط
+                                    للملفات الصغيرة جدًا لأنه يُخزَّن
+                                    داخل كود الصفحة نفسه. لبرامج أو
+                                    ألعاب بحجم حقيقي، استخدم رابط
+                                    GitHub Releases في حقل "Download
+                                    link" أعلاه بدل الرفع المباشر.
+                                </p>
+
                             </div>
 
 
@@ -746,7 +807,9 @@
 
         let projects = loadProjects();
         let editingId = null;
-        let uploadedImageData = null; // base64 data URL if a file was uploaded
+        let uploadedImageData = null; // base64 data URL if an image was uploaded
+        let uploadedFileData = null;  // base64 data URL if a program/game file was uploaded
+        let uploadedFileName = null;  // original file name, used for the download attribute
 
         function renderProjects() {
             const list = document.getElementById("projectList");
@@ -808,6 +871,18 @@
                 hideImagePreview();
             }
 
+            if (p.linkDownload && p.linkDownload.startsWith("data:")) {
+                uploadedFileData = p.linkDownload;
+                uploadedFileName = p.downloadName || "file";
+                document.getElementById("pLinkDownload").value = "";
+                showFileChip(uploadedFileName);
+            } else {
+                uploadedFileData = null;
+                uploadedFileName = null;
+                document.getElementById("pLinkDownload").value = p.linkDownload || "";
+                hideFileChip();
+            }
+
             document.getElementById("wizSubmit").textContent = "✓ حفظ التعديلات";
 
             switchTab("add");
@@ -817,9 +892,12 @@
         function resetForm() {
             editingId = null;
             uploadedImageData = null;
+            uploadedFileData = null;
+            uploadedFileName = null;
             document.getElementById("projectForm").reset();
             document.getElementById("wizSubmit").textContent = "✓ حفظ المشروع";
             hideImagePreview();
+            hideFileChip();
             goToStep(1);
         }
 
@@ -904,7 +982,7 @@
                 ["الوصف", desc || "—"],
                 ["الصورة", uploadedImageData ? "مرفوعة من الجهاز ✓" : (imgUrl || "—")],
                 ["رابط المشاهدة", linkView],
-                ["رابط التحميل", linkDownload]
+                ["رابط التحميل", uploadedFileData ? ("ملف مرفوع: " + uploadedFileName) : linkDownload]
             ];
 
             const summary = document.getElementById("reviewSummary");
@@ -975,12 +1053,76 @@
         });
 
         // =========================================================
+        // PROGRAM / GAME FILE UPLOAD (dropzone + file input)
+        // =========================================================
+        const dropzoneFile = document.getElementById("dropzoneFile");
+        const programFileInput = document.getElementById("pProgramFile");
+        const fileChip = document.getElementById("fileChip");
+        const fileChipName = document.getElementById("fileChipName");
+
+        const MAX_FILE_BYTES = 4 * 1024 * 1024; // 4MB
+
+        function showFileChip(name) {
+            fileChipName.textContent = "📎 " + name;
+            fileChip.style.display = "flex";
+        }
+
+        function hideFileChip() {
+            fileChip.style.display = "none";
+            fileChipName.textContent = "";
+            programFileInput.value = "";
+        }
+
+        function handleProgramFile(file) {
+            if (!file) return;
+            if (file.size > MAX_FILE_BYTES) {
+                showToast("الملف كبير جدًا (الحد 4MB) — استخدم GitHub Releases بدلاً من الرفع المباشر");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                uploadedFileData = e.target.result;
+                uploadedFileName = file.name;
+                document.getElementById("pLinkDownload").value = "";
+                showFileChip(file.name);
+                showToast("تم رفع الملف");
+            };
+            reader.readAsDataURL(file);
+        }
+
+        programFileInput.addEventListener("change", function (e) {
+            if (e.target.files && e.target.files[0]) handleProgramFile(e.target.files[0]);
+        });
+
+        dropzoneFile.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            dropzoneFile.classList.add("dragover");
+        });
+
+        dropzoneFile.addEventListener("dragleave", function () {
+            dropzoneFile.classList.remove("dragover");
+        });
+
+        dropzoneFile.addEventListener("drop", function (e) {
+            e.preventDefault();
+            dropzoneFile.classList.remove("dragover");
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) handleProgramFile(e.dataTransfer.files[0]);
+        });
+
+        document.getElementById("removeFileBtn").addEventListener("click", function () {
+            uploadedFileData = null;
+            uploadedFileName = null;
+            hideFileChip();
+        });
+
+        // =========================================================
         // SAVE PROJECT
         // =========================================================
         document.getElementById("projectForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
             const imgUrl = document.getElementById("pImageUrl").value.trim();
+            const linkDownloadInput = document.getElementById("pLinkDownload").value.trim();
 
             const data = {
                 title: document.getElementById("pTitle").value.trim(),
@@ -988,7 +1130,8 @@
                 image: uploadedImageData || imgUrl || "assets/placeholder.jpg",
                 description: document.getElementById("pDesc").value.trim(),
                 linkView: document.getElementById("pLinkView").value.trim() || "#",
-                linkDownload: document.getElementById("pLinkDownload").value.trim() || "#"
+                linkDownload: uploadedFileData || linkDownloadInput || "#",
+                downloadName: uploadedFileData ? uploadedFileName : null
             };
 
             if (editingId !== null) {
@@ -1018,6 +1161,9 @@
 
         function updateExport() {
             const blocks = projects.map(function (p) {
+                const downloadAttr = p.downloadName
+                    ? ' download="' + escapeHtml(p.downloadName) + '"'
+                    : '';
                 return (
 '                    <article class="project-card">\n' +
 '                        <div class="project-image">\n' +
@@ -1029,7 +1175,7 @@
 '                            <p class="project-description">' + escapeHtml(p.description) + '</p>\n' +
 '                            <div class="project-actions">\n' +
 '                                <a href="' + escapeHtml(p.linkView) + '" class="btn btn-primary">View Project</a>\n' +
-'                                <a href="' + escapeHtml(p.linkDownload) + '" class="btn btn-secondary">Download</a>\n' +
+'                                <a href="' + p.linkDownload + '" class="btn btn-secondary"' + downloadAttr + '>Download</a>\n' +
 '                            </div>\n' +
 '                        </div>\n' +
 '                    </article>'
