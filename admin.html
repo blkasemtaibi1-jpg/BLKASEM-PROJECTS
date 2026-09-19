@@ -550,7 +550,7 @@
                                     </div>
 
                                     <div class="dz-sub">
-                                        ZIP, EXE, APK... — حتى 4MB فقط
+                                        ZIP, EXE, APK... — حتى 50MB
                                     </div>
 
                                     <input
@@ -583,12 +583,13 @@
                                     class="step-hint"
                                     style="margin-top:12px; margin-bottom:0;"
                                 >
-                                    ⚠️ هذا الرفع المباشر مناسب فقط
-                                    للملفات الصغيرة جدًا لأنه يُخزَّن
-                                    داخل كود الصفحة نفسه. لبرامج أو
-                                    ألعاب بحجم حقيقي، استخدم رابط
+                                    ⚠️ الحد المسموح به في النموذج 50MB،
+                                    لكن المتصفح نفسه (وليس هذا الكود)
+                                    عادة ما يسمح بحفظ حوالي 5-10MB فقط
+                                    لكل موقع. لو فشل الحفظ، ستظهر لك
+                                    رسالة واضحة — عندها استخدم رابط
                                     GitHub Releases في حقل "Download
-                                    link" أعلاه بدل الرفع المباشر.
+                                    link" أعلاه بدلاً من الرفع المباشر.
                                 </p>
 
                             </div>
@@ -802,7 +803,13 @@
         }
 
         function saveProjects(projects) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+                return true;
+            } catch (err) {
+                showToast("فشل الحفظ: الملف كبير على تخزين المتصفح. استخدم GitHub Releases بدلاً من الرفع المباشر");
+                return false;
+            }
         }
 
         let projects = loadProjects();
@@ -1060,7 +1067,7 @@
         const fileChip = document.getElementById("fileChip");
         const fileChipName = document.getElementById("fileChipName");
 
-        const MAX_FILE_BYTES = 4 * 1024 * 1024; // 4MB
+        const MAX_FILE_BYTES = 50 * 1024 * 1024; // 50MB
 
         function showFileChip(name) {
             fileChipName.textContent = "📎 " + name;
@@ -1134,18 +1141,25 @@
                 downloadName: uploadedFileData ? uploadedFileName : null
             };
 
+            let nextProjects;
             if (editingId !== null) {
-                projects = projects.map(function (p) {
+                nextProjects = projects.map(function (p) {
                     return p.id === editingId ? Object.assign({}, p, data) : p;
                 });
-                showToast("تم تحديث المشروع");
             } else {
                 const newId = projects.length ? Math.max.apply(null, projects.map(function (p) { return p.id; })) + 1 : 1;
-                projects.push(Object.assign({ id: newId }, data));
-                showToast("تمت إضافة المشروع");
+                nextProjects = projects.concat([Object.assign({ id: newId }, data)]);
             }
 
-            saveProjects(projects);
+            const savedOk = saveProjects(nextProjects);
+            if (!savedOk) {
+                // Storage failed (most likely the embedded file was too large) —
+                // keep the form as-is so nothing the user typed is lost.
+                return;
+            }
+
+            projects = nextProjects;
+            showToast(editingId !== null ? "تم تحديث المشروع" : "تمت إضافة المشروع");
             renderProjects();
             resetForm();
             switchTab("list");
