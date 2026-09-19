@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="BLKASEM PROJECTS - Admin panel."
+    >
+
+    <title>Admin · BLKASEM PROJECTS</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================
+         LOGIN
+         ========================= -->
+
+    <div
+        class="admin-shell"
+        id="loginScreen"
+    >
+
+        <form
+            class="login-card"
+            id="loginForm"
+            autocomplete="off"
+        >
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+            <h1>
+                Admin Login
+            </h1>
+
+            <p class="login-sub">
+                Sign in to manage BLKASEM PROJECTS
+            </p>
+
+
+            <div class="field">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="admin"
+                    autocomplete="username"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="••••••••"
+                    autocomplete="current-password"
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Sign In
+            </button>
+
+
+            <div
+                class="login-error"
+                id="loginError"
+            >
+                Incorrect username or password.
+            </div>
+
+
+            <div class="login-note">
+
+                This is a client-side demo login for a
+                static site — it is not real authentication
+                and offers no real security. Anyone can view
+                the credentials in this page's source or
+                browser storage. Don't use it to protect
+                anything sensitive.
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="btn btn-secondary"
+                style="margin-top:14px;"
+            >
+                ← Back to site
+            </a>
+
+        </form>
+
+    </div>
+
+
+    <!-- =========================
+         DASHBOARD
+         ========================= -->
+
+    <div
+        class="admin-dashboard"
+        id="dashboard"
+    >
+
+        <header class="admin-topbar">
+
+            <div class="container admin-topbar-inner">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <div class="logo-icon">
+                        B
+                    </div>
+
+                    <span>
+                        BLKASEM PROJECTS
+                    </span>
+
+                </a>
+
+
+                <div style="display:flex; gap:10px;">
+
+                    <a
+                        href="index.html"
+                        class="btn btn-secondary"
+                    >
+                        View Site
+                    </a>
+
+                    <button
+                        class="btn btn-secondary"
+                        id="logoutBtn"
+                    >
+                        Log Out
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="admin-main">
+
+            <div class="container">
+
+                <div class="admin-header">
+
+                    <div>
+
+                        <h1>
+                            Project Dashboard
+                        </h1>
+
+                        <p>
+                            Add, edit or remove projects,
+                            then export the HTML to paste
+                            into your site.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-grid">
+
+
+                    <!-- FORM -->
+
+                    <div class="admin-panel">
+
+                        <h2 id="formTitle">
+                            Add New Project
+                        </h2>
+
+
+                        <form id="projectForm">
+
+                            <div class="field">
+
+                                <label for="pTitle">
+                                    Title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="pTitle"
+                                    placeholder="e.g. Smart Assistant"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="field">
+
+                                    <label for="pType">
+                                        Type
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="pType"
+                                        placeholder="Game / Program / Tool"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="pImage">
+                                        Image path
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="pImage"
+                                        placeholder="assets/project.jpg"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="pDesc">
+                                    Description
+                                </label>
+
+                                <textarea
+                                    id="pDesc"
+                                    placeholder="Short description of the project"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="field">
+
+                                    <label for="pLinkView">
+                                        View link
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="pLinkView"
+                                        placeholder="https://..."
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="pLinkDownload">
+                                        Download link
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="pLinkDownload"
+                                        placeholder="https://..."
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                    id="submitBtn"
+                                >
+                                    Add Project
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    id="cancelEditBtn"
+                                    style="display:none;"
+                                >
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="export-box">
+
+                            <h2>
+                                Export HTML
+                            </h2>
+
+                            <p
+                                style="color:var(--muted); font-size:12.5px; margin-bottom:12px;"
+                            >
+                                Copy this into the
+                                <code>projects-grid</code>
+                                section of index.html.
+                            </p>
+
+                            <textarea
+                                id="exportOutput"
+                                readonly
+                            ></textarea>
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                id="copyExportBtn"
+                                style="width:100%; margin-top:10px;"
+                            >
+                                Copy to Clipboard
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LIST -->
+
+                    <div class="admin-panel">
+
+                        <h2>
+                            Current Projects
+                        </h2>
+
+                        <div
+                            class="admin-list"
+                            id="projectList"
+                        ></div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <script>
+
+        // =========================================================
+        // DEMO CREDENTIALS — client-side only, not real security.
+        // Change these, but never treat this as a real auth system.
+        // =========================================================
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "blkasem2026";
+
+        const loginScreen = document.getElementById("loginScreen");
+        const dashboard = document.getElementById("dashboard");
+        const loginForm = document.getElementById("loginForm");
+        const loginError = document.getElementById("loginError");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.textContent = msg;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2200);
+        }
+
+        function checkSession() {
+            if (sessionStorage.getItem("blkasem_admin") === "true") {
+                loginScreen.style.display = "none";
+                dashboard.classList.add("show");
+                renderProjects();
+            } else {
+                loginScreen.style.display = "flex";
+                dashboard.classList.remove("show");
+            }
+        }
+
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const user = document.getElementById("username").value.trim();
+            const pass = document.getElementById("password").value;
+
+            if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
+                sessionStorage.setItem("blkasem_admin", "true");
+                loginError.classList.remove("show");
+                checkSession();
+            } else {
+                loginError.classList.add("show");
+            }
+        });
+
+        logoutBtn.addEventListener("click", function () {
+            sessionStorage.removeItem("blkasem_admin");
+            checkSession();
+        });
+
+        // =========================================================
+        // PROJECT DATA (stored in this browser via localStorage)
+        // =========================================================
+        const STORAGE_KEY = "blkasem_projects";
+
+        const defaultProjects = [
+            {
+                id: 1,
+                title: "Smart Assistant",
+                type: "Program",
+                image: "assets/project1.jpg",
+                description: "A personal assistant project created with Python.",
+                linkView: "#",
+                linkDownload: "#"
+            },
+            {
+                id: 2,
+                title: "My First Game",
+                type: "Game",
+                image: "assets/project2.jpg",
+                description: "A small game project made as part of my programming journey.",
+                linkView: "#",
+                linkDownload: "#"
+            },
+            {
+                id: 3,
+                title: "Useful Tools",
+                type: "Tool",
+                image: "assets/project3.jpg",
+                description: "A collection of small tools and utilities created for learning.",
+                linkView: "#",
+                linkDownload: "#"
+            }
+        ];
+
+        function loadProjects() {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultProjects));
+                return defaultProjects.slice();
+            }
+            try {
+                return JSON.parse(raw);
+            } catch (err) {
+                return defaultProjects.slice();
+            }
+        }
+
+        function saveProjects(projects) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+        }
+
+        let projects = loadProjects();
+        let editingId = null;
+
+        function renderProjects() {
+            const list = document.getElementById("projectList");
+            list.innerHTML = "";
+
+            if (projects.length === 0) {
+                list.innerHTML = '<div class="empty-state">No projects yet. Add your first one on the left.</div>';
+            } else {
+                projects.forEach(function (p) {
+                    const row = document.createElement("div");
+                    row.className = "admin-project-row";
+                    row.innerHTML =
+                        '<div class="info">' +
+                            '<div class="name"></div>' +
+                            '<div class="type"></div>' +
+                        '</div>' +
+                        '<div class="row-actions">' +
+                            '<button class="icon-btn edit-btn" title="Edit">✏️</button>' +
+                            '<button class="icon-btn danger delete-btn" title="Delete">🗑️</button>' +
+                        '</div>';
+
+                    row.querySelector(".name").textContent = p.title;
+                    row.querySelector(".type").textContent = p.type;
+
+                    row.querySelector(".edit-btn").addEventListener("click", function () {
+                        startEdit(p.id);
+                    });
+
+                    row.querySelector(".delete-btn").addEventListener("click", function () {
+                        deleteProject(p.id);
+                    });
+
+                    list.appendChild(row);
+                });
+            }
+
+            updateExport();
+        }
+
+        function startEdit(id) {
+            const p = projects.find(function (item) { return item.id === id; });
+            if (!p) return;
+
+            editingId = id;
+
+            document.getElementById("pTitle").value = p.title;
+            document.getElementById("pType").value = p.type;
+            document.getElementById("pImage").value = p.image;
+            document.getElementById("pDesc").value = p.description;
+            document.getElementById("pLinkView").value = p.linkView;
+            document.getElementById("pLinkDownload").value = p.linkDownload;
+
+            document.getElementById("formTitle").textContent = "Edit Project";
+            document.getElementById("submitBtn").textContent = "Save Changes";
+            document.getElementById("cancelEditBtn").style.display = "inline-flex";
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function resetForm() {
+            editingId = null;
+            document.getElementById("projectForm").reset();
+            document.getElementById("formTitle").textContent = "Add New Project";
+            document.getElementById("submitBtn").textContent = "Add Project";
+            document.getElementById("cancelEditBtn").style.display = "none";
+        }
+
+        document.getElementById("cancelEditBtn").addEventListener("click", resetForm);
+
+        function deleteProject(id) {
+            projects = projects.filter(function (p) { return p.id !== id; });
+            saveProjects(projects);
+            renderProjects();
+            showToast("Project deleted");
+            if (editingId === id) resetForm();
+        }
+
+        document.getElementById("projectForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = {
+                title: document.getElementById("pTitle").value.trim(),
+                type: document.getElementById("pType").value.trim(),
+                image: document.getElementById("pImage").value.trim() || "assets/placeholder.jpg",
+                description: document.getElementById("pDesc").value.trim(),
+                linkView: document.getElementById("pLinkView").value.trim() || "#",
+                linkDownload: document.getElementById("pLinkDownload").value.trim() || "#"
+            };
+
+            if (editingId !== null) {
+                projects = projects.map(function (p) {
+                    return p.id === editingId ? Object.assign({}, p, data) : p;
+                });
+                showToast("Project updated");
+            } else {
+                const newId = projects.length ? Math.max.apply(null, projects.map(function (p) { return p.id; })) + 1 : 1;
+                projects.push(Object.assign({ id: newId }, data));
+                showToast("Project added");
+            }
+
+            saveProjects(projects);
+            renderProjects();
+            resetForm();
+        });
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function updateExport() {
+            const blocks = projects.map(function (p) {
+                return (
+'                    <article class="project-card">\n' +
+'                        <div class="project-image">\n' +
+'                            <img src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.title) + '">\n' +
+'                        </div>\n' +
+'                        <div class="project-content">\n' +
+'                            <span class="project-type">' + escapeHtml(p.type) + '</span>\n' +
+'                            <h3 class="project-title">' + escapeHtml(p.title) + '</h3>\n' +
+'                            <p class="project-description">' + escapeHtml(p.description) + '</p>\n' +
+'                            <div class="project-actions">\n' +
+'                                <a href="' + escapeHtml(p.linkView) + '" class="btn btn-primary">View Project</a>\n' +
+'                                <a href="' + escapeHtml(p.linkDownload) + '" class="btn btn-secondary">Download</a>\n' +
+'                            </div>\n' +
+'                        </div>\n' +
+'                    </article>'
+                );
+            });
+
+            document.getElementById("exportOutput").value = blocks.join("\n\n\n");
+        }
+
+        document.getElementById("copyExportBtn").addEventListener("click", function () {
+            const box = document.getElementById("exportOutput");
+            box.select();
+            box.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(box.value).then(function () {
+                showToast("Copied to clipboard");
+            }).catch(function () {
+                document.execCommand("copy");
+                showToast("Copied to clipboard");
+            });
+        });
+
+        checkSession();
+
+    </script>
+
+</body>
+
+</html>
