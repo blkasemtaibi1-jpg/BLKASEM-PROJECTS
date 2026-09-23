@@ -2,766 +2,391 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="BLKASEM PROJECTS - Games, software, tools and creative projects."
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLKASEM PROJECTS</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
-<div class="background">
-
-    <div class="orb orb-one"></div>
-    <div class="orb orb-two"></div>
-    <div class="orb orb-three"></div>
-
-</div>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
 <header class="navbar">
-
-    <a href="#home" class="brand">
-
-        <div class="brand-icon">
-            B
-        </div>
-
-        <div class="brand-text">
-
-            <strong>
-                BLKASEM
-            </strong>
-
-            <span>
-                PROJECTS
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <nav class="nav-links">
-
-        <a href="#home">
-            Home
+    <div class="container nav-inner">
+        <a class="brand" href="#home">
+            <span class="brand-icon">B</span>
+            <span><strong>BLKASEM</strong><small>PROJECTS</small></span>
         </a>
-
-        <a href="#projects">
-            Projects
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </nav>
-
-
-    <a href="#admin" class="admin-button">
-        Admin
-    </a>
-
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#admin" class="nav-admin">Admin Login</a>
+        </nav>
+    </div>
 </header>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<div id="flash-area" class="container flash-area"></div>
 
 <main>
-
 <section id="home" class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            <span class="status-dot"></span>
-            BLKASEM DIGITAL LAB
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <div class="eyebrow"><span></span>PERSONAL PROJECT HUB</div>
+            <h1>Build.<span>Create.</span>Share.</h1>
+            <p>
+                Welcome to BLKASEM PROJECTS — a place for games,
+                programs, tools and creative projects.
+            </p>
+            <div class="hero-buttons">
+                <a class="btn primary" href="#projects">Explore Projects</a>
+                <a class="btn secondary" href="#admin">Admin Login</a>
+            </div>
+            <div class="creator">MADE BY <strong>BLKASEM</strong></div>
         </div>
 
-
-        <h1>
-            Build.
-            <span>Create.</span>
-            Share.
-        </h1>
-
-
-        <p>
-            Welcome to BLKASEM PROJECTS — a personal
-            collection of games, programs, tools and
-            creative experiments.
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projects"
-                class="button primary"
-            >
-                Explore Projects
-                <span>→</span>
-            </a>
-
-
-            <a
-                href="#about"
-                class="button secondary"
-            >
-                About Me
-            </a>
-
+        <div class="code-card">
+            <div class="window-top"><span></span><span></span><span></span></div>
+            <div class="code-body">
+                <div><span class="code-purple">class</span> <span class="code-blue">BLKASEM</span>:</div>
+                <div class="indent"><span class="code-purple">def</span> <span class="code-blue">create</span>():</div>
+                <div class="indent2"><span class="code-green">"Build something awesome."</span></div>
+                <div class="indent2"><span class="code-purple">return</span> <span class="code-orange">PROJECT</span></div>
+                <div class="code-cursor">_</div>
+            </div>
         </div>
-
-
-        <div class="hero-stats">
-
-            <div class="stat">
-
-                <strong>
-                    03+
-                </strong>
-
-                <span>
-                    Categories
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <strong>
-                    ∞
-                </strong>
-
-                <span>
-                    Ideas
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <strong>
-                    2026
-                </strong>
-
-                <span>
-                    Started
-                </span>
-
-            </div>
-
-        </div>
-
     </div>
-
-
-    <div class="hero-visual">
-
-        <div class="visual-glow"></div>
-
-
-        <div class="code-window">
-
-            <div class="window-header">
-
-                <div class="window-dots">
-
-                    <i></i>
-                    <i></i>
-                    <i></i>
-
-                </div>
-
-                <span>
-                    BLKASEM_PROJECTS
-                </span>
-
-            </div>
-
-
-            <div class="code-content">
-
-                <p>
-                    <span class="purple">const</span>
-                    creator =
-                    <span class="green">"BLKASEM"</span>;
-                </p>
-
-                <p>
-                    <span class="purple">const</span>
-                    projects = [
-                </p>
-
-                <p class="indent">
-                    <span class="green">"Games"</span>,
-                </p>
-
-                <p class="indent">
-                    <span class="green">"Software"</span>,
-                </p>
-
-                <p class="indent">
-                    <span class="green">"Tools"</span>
-                </p>
-
-                <p>
-                    ];
-                </p>
-
-                <p>
-                    <span class="blue">launch</span>(projects);
-                </p>
-
-            </div>
-
-
-            <div class="code-footer">
-
-                <span>
-                    ● ONLINE
-                </span>
-
-                <span>
-                    v1.0
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
 </section>
 
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section id="projects" class="projects">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span class="section-tag">
-                MY WORK
-            </span>
-
-            <h2>
-                Featured Projects
-            </h2>
-
+<section id="projects" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow"><span></span>MY WORK</div>
+                <h2>Projects</h2>
+            </div>
+            <p>Download games, software and tools created by BLKASEM.</p>
         </div>
-
-
-        <p>
-            Games, software and useful tools
-            created by BLKASEM.
-        </p>
-
+        <div id="project-grid" class="project-grid">
+            <div class="loading-state">Loading projects...</div>
+        </div>
     </div>
-
-
-    <div class="project-grid">
-
-
-        <!-- GAME -->
-
-        <article class="project-card">
-
-            <div class="project-image">
-
-                <img
-                    src="assets/game.jpg"
-                    alt="Game project"
-                >
-
-                <div class="image-overlay"></div>
-
-                <span class="project-category">
-                    GAME
-                </span>
-
-            </div>
-
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    01
-                </div>
-
-                <h3>
-                    BLKASEM Adventure
-                </h3>
-
-                <p>
-                    A challenging platform game
-                    filled with traps, levels
-                    and unexpected surprises.
-                </p>
-
-
-                <div class="project-meta">
-
-                    <span>
-                        🎮 Game
-                    </span>
-
-                    <span>
-                        Windows
-                    </span>
-
-                </div>
-
-
-                <!--
-                    Replace the # below with
-                    your real download link.
-                -->
-
-                <a
-                    href="#"
-                    class="download-button"
-                >
-                    Download
-                    <span>↓</span>
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- SOFTWARE -->
-
-        <article class="project-card">
-
-            <div class="project-image">
-
-                <img
-                    src="assets/software.jpg"
-                    alt="Software project"
-                >
-
-                <div class="image-overlay"></div>
-
-                <span class="project-category">
-                    SOFTWARE
-                </span>
-
-            </div>
-
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    02
-                </div>
-
-                <h3>
-                    Smart Assistant
-                </h3>
-
-                <p>
-                    A personal desktop assistant
-                    designed to help with study,
-                    tasks and everyday work.
-                </p>
-
-
-                <div class="project-meta">
-
-                    <span>
-                        💻 Program
-                    </span>
-
-                    <span>
-                        Windows
-                    </span>
-
-                </div>
-
-
-                <a
-                    href="#"
-                    class="download-button"
-                >
-                    Download
-                    <span>↓</span>
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- TOOL -->
-
-        <article class="project-card">
-
-            <div class="project-image">
-
-                <img
-                    src="assets/tools.jpg"
-                    alt="Tools project"
-                >
-
-                <div class="image-overlay"></div>
-
-                <span class="project-category">
-                    TOOL
-                </span>
-
-            </div>
-
-
-            <div class="project-info">
-
-                <div class="project-number">
-                    03
-                </div>
-
-                <h3>
-                    BLKASEM Tools
-                </h3>
-
-                <p>
-                    A collection of useful tools
-                    for students, programmers
-                    and creators.
-                </p>
-
-
-                <div class="project-meta">
-
-                    <span>
-                        🛠 Tool
-                    </span>
-
-                    <span>
-                        Windows
-                    </span>
-
-                </div>
-
-
-                <a
-                    href="#"
-                    class="download-button"
-                >
-                    Download
-                    <span>↓</span>
-                </a>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
 </section>
 
-
-<!-- =====================================================
-     HOW IT WORKS
-===================================================== -->
-
-<section class="how-section">
-
-    <div class="section-heading center">
-
-        <span class="section-tag">
-            SIMPLE
-        </span>
-
-        <h2>
-            How It Works
-        </h2>
-
-        <p>
-            Share your projects with anyone using
-            a simple download link.
-        </p>
-
+<section id="about" class="section dark-section">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow"><span></span>ABOUT</div>
+                <h2>Made by BLKASEM</h2>
+            </div>
+            <p>A personal space for sharing projects and learning through building.</p>
+        </div>
+        <div class="steps">
+            <div class="step"><div class="step-number">01</div><h3>Build</h3><p>Create a game, program or useful tool.</p></div>
+            <div class="step"><div class="step-number">02</div><h3>Upload</h3><p>Use the private admin panel to publish the real project file.</p></div>
+            <div class="step"><div class="step-number">03</div><h3>Share</h3><p>Visitors can open the website and download your projects.</p></div>
+        </div>
     </div>
-
-
-    <div class="steps">
-
-
-        <div class="step">
-
-            <div class="step-icon">
-                01
-            </div>
-
-            <h3>
-                Create
-            </h3>
-
-            <p>
-                Build your game, program
-                or useful tool.
-            </p>
-
-        </div>
-
-
-        <div class="step-line"></div>
-
-
-        <div class="step">
-
-            <div class="step-icon">
-                02
-            </div>
-
-            <h3>
-                Upload
-            </h3>
-
-            <p>
-                Add your project and
-                its download link.
-            </p>
-
-        </div>
-
-
-        <div class="step-line"></div>
-
-
-        <div class="step">
-
-            <div class="step-icon">
-                03
-            </div>
-
-            <h3>
-                Share
-            </h3>
-
-            <p>
-                Send the project link
-                to your friends.
-            </p>
-
-        </div>
-
-    </div>
-
 </section>
 
+<section id="admin" class="admin-page">
+    <div class="container">
+        <div class="admin-box" id="login-box">
+            <div class="admin-icon">B</div>
+            <div class="eyebrow"><span></span>PRIVATE AREA</div>
+            <h1>Admin Login</h1>
+            <p>Only the administrator can upload or delete projects.</p>
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+            <form id="login-form" class="form">
+                <label for="username">Username</label>
+                <input id="username" type="text" placeholder="Enter username" required>
 
-<section id="about" class="about">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Enter password" required>
 
-    <div class="about-card">
-
-        <div class="about-content">
-
-            <span class="section-tag">
-                ABOUT BLKASEM
-            </span>
-
-            <h2>
-                Turning ideas into
-                <span>real projects.</span>
-            </h2>
-
-            <p>
-                BLKASEM PROJECTS is my personal
-                space for sharing the things I create.
-                From games and desktop applications
-                to small tools and experiments.
-            </p>
-
-
-            <div class="creator-signature">
-                ✦ MADE BY BLKASEM ✦
-            </div>
-
-        </div>
-
-
-        <div class="about-symbol">
-
-            <div class="big-b">
-                B
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ADMIN
-===================================================== -->
-
-<section id="admin" class="admin-section">
-
-    <div class="admin-card">
-
-        <div class="admin-icon">
-            🔐
-        </div>
-
-
-        <div class="admin-content">
-
-            <span class="section-tag">
-                PRIVATE AREA
-            </span>
-
-            <h2>
-                Admin Login
-            </h2>
-
-            <p>
-                Project management area for
-                BLKASEM.
-            </p>
-
-
-            <!--
-                This is the visual login form.
-
-                A REAL secure login requires
-                a backend server.
-            -->
-
-            <form class="login-form">
-
-                <input
-                    type="text"
-                    placeholder="Username"
-                    required
-                >
-
-                <input
-                    type="password"
-                    placeholder="Password"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="login-button"
-                >
-                    Login →
-                </button>
-
+                <button class="btn primary full" type="submit">Login</button>
             </form>
-
         </div>
 
+        <div class="dashboard" id="dashboard" hidden>
+            <div class="dashboard-header">
+                <div>
+                    <div class="eyebrow"><span></span>ADMIN PANEL</div>
+                    <h1>Project Dashboard</h1>
+                    <p>Upload and manage your BLKASEM PROJECTS.</p>
+                </div>
+                <button id="logout-btn" class="btn secondary">Logout</button>
+            </div>
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <h2>Upload New Project</h2>
+                    <span>MAX 500 MB</span>
+                </div>
+
+                <form id="upload-form" class="form" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div>
+                            <label for="title">Project title</label>
+                            <input id="title" name="title" type="text" maxlength="120" placeholder="My Awesome Game" required>
+                        </div>
+                        <div>
+                            <label for="category">Category</label>
+                            <select id="category" name="category">
+                                <option>Game</option>
+                                <option>Software</option>
+                                <option>Tool</option>
+                                <option>Python</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" maxlength="1000" placeholder="Describe your project..." required></textarea>
+
+                    <label for="project_file">Project file</label>
+                    <input id="project_file" name="project_file" type="file"
+                           accept=".zip,.rar,.7z,.exe,.msi,.py,.apk,.pdf" required>
+                    <small class="hint">ZIP, RAR, 7Z, EXE, MSI, PY, APK or PDF</small>
+
+                    <label for="image_file">Project image <span class="optional">(optional)</span></label>
+                    <input id="image_file" name="image_file" type="file"
+                           accept=".png,.jpg,.jpeg,.webp,.gif">
+                    <small class="hint">PNG, JPG, JPEG, WEBP or GIF</small>
+
+                    <button class="btn primary" type="submit">Upload Project</button>
+                </form>
+            </section>
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <h2>Uploaded Projects</h2>
+                    <span id="admin-count">0 PROJECTS</span>
+                </div>
+                <div id="admin-projects" class="admin-projects"></div>
+            </section>
+        </div>
     </div>
-
 </section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact" class="contact">
-
-    <span class="section-tag">
-        CONTACT
-    </span>
-
-    <h2>
-        Have an idea?
-    </h2>
-
-    <p>
-        Keep creating. Keep learning.
-        Keep building.
-    </p>
-
-</section>
-
 </main>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div class="footer-brand">
-
-        <div class="footer-logo">
-            B
-        </div>
-
-        <div>
-
-            <strong>
-                BLKASEM PROJECTS
-            </strong>
-
-            <span>
-                Games • Software • Tools
-            </span>
-
-        </div>
-
+<footer class="footer">
+    <div class="container footer-inner">
+        <div><strong>BLKASEM PROJECTS</strong><p>Games, programs and creative projects.</p></div>
+        <div class="footer-signature">MADE BY BLKASEM</div>
     </div>
-
-
-    <div class="footer-center">
-        © 2026 BLKASEM PROJECTS
-    </div>
-
-
-    <div class="footer-right">
-        MADE BY BLKASEM ✦
-    </div>
-
 </footer>
 
+<script>
+const API_BASE = "https://YOUR-BACKEND.onrender.com";
+
+const projectGrid = document.getElementById("project-grid");
+const flashArea = document.getElementById("flash-area");
+const loginBox = document.getElementById("login-box");
+const dashboard = document.getElementById("dashboard");
+
+function showMessage(message, type = "success") {
+    flashArea.innerHTML = `<div class="flash ${type}">${escapeHtml(message)}</div>`;
+    setTimeout(() => flashArea.innerHTML = "", 4500);
+}
+
+function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#039;"
+    }[char]));
+}
+
+function assetUrl(path) {
+    return path ? API_BASE + path : "";
+}
+
+async function loadProjects() {
+    try {
+        const response = await fetch(`${API_BASE}/api/projects`);
+        if (!response.ok) throw new Error();
+        const projects = await response.json();
+
+        if (!projects.length) {
+            projectGrid.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">+</div>
+                    <h3>No projects yet</h3>
+                    <p>Log in as admin and upload your first project.</p>
+                    <a class="btn primary" href="#admin">Open Admin</a>
+                </div>`;
+            return;
+        }
+
+        projectGrid.innerHTML = projects.map(project => `
+            <article class="project-card">
+                <div class="project-image">
+                    ${project.image
+                        ? `<img src="${assetUrl(project.image)}" alt="${escapeHtml(project.title)}">`
+                        : `<div class="image-placeholder"><span>BLKASEM</span><small>${escapeHtml(project.category)}</small></div>`
+                    }
+                    <span class="category">${escapeHtml(project.category)}</span>
+                </div>
+                <div class="project-body">
+                    <h3>${escapeHtml(project.title)}</h3>
+                    <p>${escapeHtml(project.description)}</p>
+                    <div class="project-meta">
+                        <span>Downloads: ${project.downloads}</span>
+                        <span>${escapeHtml(project.filename)}</span>
+                    </div>
+                    <a class="btn primary full"
+                       href="${assetUrl(project.download_url)}">
+                       Download Project
+                    </a>
+                </div>
+            </article>
+        `).join("");
+    } catch {
+        projectGrid.innerHTML = `
+            <div class="empty-state">
+                <h3>Backend is not connected yet</h3>
+                <p>Set your Render backend URL in index.html, then reload the page.</p>
+            </div>`;
+    }
+}
+
+async function checkSession() {
+    try {
+        const response = await fetch(`${API_BASE}/api/session`, {
+            credentials: "include"
+        });
+        const data = await response.json();
+        if (data.logged_in) showDashboard();
+    } catch {}
+}
+
+function showDashboard() {
+    loginBox.hidden = true;
+    dashboard.hidden = false;
+    loadAdminProjects();
+}
+
+document.getElementById("login-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        const response = await fetch(`${API_BASE}/api/login`, {
+            method: "POST",
+            credentials: "include",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password})
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            showMessage(data.message || "Login failed.", "error");
+            return;
+        }
+
+        showMessage("Login successful.");
+        showDashboard();
+    } catch {
+        showMessage("Cannot connect to the backend.", "error");
+    }
+});
+
+document.getElementById("logout-btn").addEventListener("click", async () => {
+    await fetch(`${API_BASE}/api/logout`, {
+        method: "POST",
+        credentials: "include"
+    });
+
+    dashboard.hidden = true;
+    loginBox.hidden = false;
+    showMessage("Logged out.");
+});
+
+document.getElementById("upload-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const form = document.getElementById("upload-form");
+    const data = new FormData(form);
+
+    try {
+        const response = await fetch(`${API_BASE}/api/upload`, {
+            method: "POST",
+            credentials: "include",
+            body: data
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            showMessage(result.message || "Upload failed.", "error");
+            return;
+        }
+
+        form.reset();
+        showMessage("Project uploaded successfully.");
+        await loadProjects();
+        await loadAdminProjects();
+    } catch {
+        showMessage("Upload failed. Check the backend connection.", "error");
+    }
+});
+
+async function loadAdminProjects() {
+    const box = document.getElementById("admin-projects");
+    const count = document.getElementById("admin-count");
+
+    try {
+        const response = await fetch(`${API_BASE}/api/projects`);
+        const projects = await response.json();
+
+        count.textContent = `${projects.length} PROJECTS`;
+
+        if (!projects.length) {
+            box.innerHTML = `<p class="muted">No projects uploaded yet.</p>`;
+            return;
+        }
+
+        box.innerHTML = projects.map(project => `
+            <div class="admin-project">
+                <div>
+                    <strong>${escapeHtml(project.title)}</strong>
+                    <span>${escapeHtml(project.category)} · ${project.downloads} downloads</span>
+                </div>
+                <button class="delete-btn" onclick="deleteProject(${project.id})">
+                    Delete
+                </button>
+            </div>
+        `).join("");
+    } catch {
+        box.innerHTML = `<p class="muted">Could not load admin projects.</p>`;
+    }
+}
+
+async function deleteProject(id) {
+    if (!confirm("Delete this project?")) return;
+
+    const response = await fetch(`${API_BASE}/api/delete/${id}`, {
+        method: "POST",
+        credentials: "include"
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        showMessage(result.message || "Delete failed.", "error");
+        return;
+    }
+
+    showMessage("Project deleted.");
+    await loadProjects();
+    await loadAdminProjects();
+}
+
+loadProjects();
+checkSession();
+</script>
 
 </body>
 </html>
